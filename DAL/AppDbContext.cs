@@ -14,9 +14,11 @@ namespace LearningEFCore.DatabaseFirst.DAL
         // My Product Table Entity
         public DbSet<Product> Products { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=ISTNB0630\\SQLEXPRESS;Initial Catalog=LearningEFCore.DatabaseFirstDB;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
-        }
+        //====================== CONSTRUCTORS ===================================//
+        // Default constructor
+        public AppDbContext() {}
+        // Constructor with DbContextOptions
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+        //=======================================================================//
     }
 }
